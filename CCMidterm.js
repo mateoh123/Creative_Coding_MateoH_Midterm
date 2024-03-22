@@ -1,12 +1,21 @@
+var rain = [];
+
 function setup() {
   createCanvas(700, 700);
+  for (var i = 0; i < 200; i++) {
+    rain[i] = new Rain();
+  }
+  
 }
 
 function draw() {
   background(0, 0, 0);
   house_exterior();
+  for (var i = 0; i < 100; i++) {
+    rain[i].show();
+    rain[i].update();
+  }
 
-  //house exterior
 }
 
 function house_exterior() {
@@ -106,4 +115,24 @@ function house_exterior() {
   //roof
   triangle(408, 410, 662, 410, 530, 300);
   pop();
+}
+
+function Rain() {
+  this.x = random(0, width);
+  this.y = random(0, -height);
+  this.show = function () {
+    fill(94, 172, 255, 100);
+    noStroke();
+    ellipse(this.x, this.y, 4, 12);
+  };
+  this.update = function () {
+    this.speed = random(5, 15);
+    this.gravity = 1.05;
+    this.y = this.y + this.speed * this.gravity;
+
+    if (this.y > height) {
+      this.y = random(0, -height);
+      this.gravity = 0;
+    }
+  };
 }
