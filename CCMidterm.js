@@ -8,11 +8,18 @@ var dooropen = 50;
 var knob = 550;
 var cloudfade = 300;
 var lightson = "#000000";
-var shelvesmove = 0
-var bedroommove = 0
+
 
 //SCENE TWO VARIABLES//
 var scene2 = false
+var shelvesmove1 = 600
+var shelvesmove2 = 600
+var bedroommove = 0
+
+//SCENE THREE VARIABLES//
+var scene3 = false
+var flash = 0
+var flashcolor = "#000000"
 
 function setup() {
   createCanvas(700, 700);
@@ -25,8 +32,10 @@ function setup() {
 }
 
 function draw() {
-  print(frameCount);
+  scene_three()
+  flash = flash + 1
 
+  /*
   if (scene1 == true) {
     scene_one();
 
@@ -58,7 +67,7 @@ function draw() {
     }
   }
   
-  if(frameCount == 520){
+  if(frameCount == 550){
     scene1 = false
     scene2 = true
   }
@@ -66,12 +75,28 @@ function draw() {
   if(scene2 == true){
     scene_two()
 
-    if(frameCount >= 540){
+    if(frameCount == 670){
       bedroommove = 1000
+      shelvesmove1 = 0
+      
+    }
+
+    if(frameCount > 675){
+      shelvesmove1 = shelvesmove1 - 1.5
+      shelvesmove2 = shelvesmove2 - 1.5
+
+    }
+
+    if(frameCount == 1100){
+      bedroommove = 0
+      shelvesmove1 = -1000
+      shelvesmove2 = -1000
     }
 
 
   }
+
+  */
 
 }
 
@@ -358,12 +383,9 @@ function scene_two() {
   rect(0, 680, 700, 30);
   pop();
 
-
-
-
-  /*
+  
   push();
-  translate(0,0)
+  translate(shelvesmove1,0)
   noStroke()
   //shelves closeup 1
   fill(255, 255, 255)
@@ -398,11 +420,8 @@ function scene_two() {
   ellipse(490,280,5,15)
   pop();
 
-  */
-
-  /*
   push();
-  translate(600,0)
+  translate(shelvesmove2,0)
   noStroke()
   //shelves closeup 2
   fill(255, 255, 255);
@@ -419,7 +438,44 @@ function scene_two() {
   rect(310,240,100,100);
   pop();
 
-  */
-
 }
 
+function scene_three(){
+  background(56, 31, 0)
+
+  noStroke()
+  //bedside table
+  fill(66, 36, 0);
+  ellipse(340, 340, 500, 500);
+
+  //phone
+  push();
+  translate(random(-5,5),random(-5,5))
+  fill(191,148,228)
+  rect(400,200,130,250, 5)
+  fill(flashcolor)
+  rect(405,205,120,240, 5)
+  fill(0, 22, 56)
+  ellipse(465,220,10,10)
+  pop();
+
+  //phone charger
+  push()
+  fill(0,0,0)
+  rect(260,300, 5,400)
+  fill(0,0,0)
+  ellipse(260,330,130,130)
+  fill(255, 194, 28)
+  ellipse(260,330,110,110)
+  fill(0,0,0)
+  ellipse(260,330,100,100)
+  pop()
+
+  if(flash % 10 == 0){
+    flashcolor = "#ff0000"
+    
+  }else{
+    flashcolor = "#000000"
+  }
+
+}
