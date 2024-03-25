@@ -38,7 +38,44 @@ var phoneoncharger = false
 var shakes2 = 15
 
 //SCENE SEVEN VARIABLES//
+
 var scene7 = false
+var b1 = -100
+var b2 = -100
+var b3 = -100
+var b4 = -100
+var b5 = -100
+var b6 = -100
+var b7 = -100
+var b8 = -100
+var b9 = -100
+var b10 = -100
+var b11 = -100
+var b12 = -100
+var b13 = -100
+var b14 = -100
+
+/*
+var scene7 = false
+var b1 = 305
+var b2 = 305
+var b3 = 305
+var b4 = 305
+var b5 = 355
+var b6 = 355
+var b7 = 355
+var b8 = 355
+var b9 = 355
+var b10 = 400
+var b11 = 400
+var b12 = 400
+var b13 = 400
+var b14 = 400
+*/
+
+//SCENE EIGHT VARIABLES//
+var scene8 = false
+
 
 function setup() {
   createCanvas(700, 700);
@@ -53,7 +90,8 @@ function setup() {
 function draw() {
   //scene_five()
   //scene_six()
-  scene_seven()
+  //scene_seven()
+  scene_eight()
 
   /*
 
@@ -926,14 +964,22 @@ function scene_seven() {
   //battery levels
   fill(33, 255, 33)
   noStroke()
-  rect(225, 305, 20, 40, 5)
-  rect(250, 305, 20, 40, 5)
-  rect(275, 305, 20, 40, 5)
-  rect(300, 305, 20, 40, 5)
-  rect(210, 355, 20, 40, 5)
-  rect(235, 355, 20, 40, 5)
-  rect(260, 355, 20, 40, 5)
-  rect(285, 355, 20, 40, 5)
+  rect(225, b1, 20, 40, 5)
+  rect(250, b2, 20, 40, 5)
+  rect(275, b3, 20, 40, 5)
+  rect(300, b4, 20, 40, 5)
+
+  rect(210, b5, 20, 40, 5)
+  rect(235, b6, 20, 40, 5)
+  rect(260, b7, 20, 40, 5)
+  rect(285, b8, 20, 40, 5)
+  rect(310, b9, 15, 40, 5)
+
+  rect(210, b10, 20, 40, 5)
+  rect(235, b11, 20, 40, 5)
+  rect(260, b12, 20, 40, 5)
+  rect(285, b13, 20, 40, 5)
+  rect(310, b14, 15, 40, 5)
 
 
 
@@ -944,6 +990,9 @@ function scene_seven() {
   rect(220, 300, 80, 50, 10)
   rect(300, 308, 15, 30, 5)
 
+}
 
+function scene_eight(){
+  background(194, 112, 190);
 
 }
