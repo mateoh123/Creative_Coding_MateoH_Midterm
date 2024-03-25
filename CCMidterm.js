@@ -195,6 +195,9 @@ function draw() {
   } else if (frameCount == 2500) {
     scene6 = false
     scene7 = true
+  } else if (frameCount == 3800) {
+    scene7 = false
+    scene8 = true
   }
 
 
@@ -1057,6 +1060,7 @@ function scene_seven() {
     b14 = 400
   }
 
+
 }
 
 function scene_eight() {
@@ -1082,5 +1086,21 @@ function scene_eight() {
   fill(eye_color)
   ellipse(250, 300, 50, 100)
   ellipse(450, 300, 50, 100)
+
+  if (frameCount == 3810) {
+    eye_color = "#301507"
+  }
+
+  if (frameCount == 3830) {
+    eye_color = "#000000"
+  }
+
+  if (frameCount == 3850) {
+    eye_color = "#301507"
+  }
+
+  if (frameCount == 3870) {
+    eye_color = "#000000"
+  }
 
 }
