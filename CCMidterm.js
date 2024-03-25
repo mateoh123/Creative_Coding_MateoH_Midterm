@@ -54,24 +54,7 @@ var b11 = -100
 var b12 = -100
 var b13 = -100
 var b14 = -100
-
-/*
-var scene7 = false
-var b1 = 305
-var b2 = 305
-var b3 = 305
-var b4 = 305
-var b5 = 355
-var b6 = 355
-var b7 = 355
-var b8 = 355
-var b9 = 355
-var b10 = 400
-var b11 = 400
-var b12 = 400
-var b13 = 400
-var b14 = 400
-*/
+var shakes3 = 0
 
 //SCENE EIGHT VARIABLES//
 var scene8 = false
@@ -89,12 +72,7 @@ function setup() {
 }
 
 function draw() {
-  //scene_five()
-  //scene_six()
-  //scene_seven()
-  scene_eight()
-
-  /*
+  //scene_eight()
 
   if (scene1 == true) {
     scene_one();
@@ -127,22 +105,22 @@ function draw() {
     }
   }
 
-  if(scene2 == true){
+  if (scene2 == true) {
     scene_two()
 
-    if(frameCount == 670){
+    if (frameCount == 670) {
       bedroommove = 1000
       shelvesmove1 = 0
-      
+
     }
 
-    if(frameCount > 675){
+    if (frameCount > 675) {
       shelvesmove1 = shelvesmove1 - 1.5
       shelvesmove2 = shelvesmove2 - 1.5
 
     }
 
-    if(frameCount == 1100){
+    if (frameCount == 1100) {
       bedroommove = 0
       shelvesmove1 = -1000
       shelvesmove2 = -1000
@@ -150,51 +128,75 @@ function draw() {
 
   }
 
-  if(scene3 == true){
+  if (scene3 == true) {
     scene_three()
   }
 
-  if(sb_scene == true){
+  if (sb_scene == true) {
     sleeping_bedroom()
   }
 
-  if(scene4 == true){
+  if (scene4 == true) {
     scene_four()
     flash = flash + 1
   }
 
-  if(frameCount == 550){
+  if (scene5 == true) {
+    scene_five()
+  }
+
+  if (scene6 == true) {
+    scene_six()
+  }
+
+  if (scene7 == true) {
+    scene_seven()
+  }
+
+  if (scene8 == true) {
+    scene_eight()
+  }
+
+  if (frameCount == 550) {
     scene1 = false
     scene2 = true
     scene3 = false
     scene4 = false
-  }else if(frameCount == 1200){
+  } else if (frameCount == 1200) {
     scene2 = false
     scene3 = true
-  }else if(frameCount == 1300){
+  } else if (frameCount == 1300) {
     scene3 = false
     sb_scene = true
-  }else if(frameCount == 1400){
+  } else if (frameCount == 1400) {
     sb_scene = false
     scene4 = true
 
-  }else if(frameCount == 1500){
+  } else if (frameCount == 1500) {
     sb_scene = true
     scene4 = false
-  }else if(frameCount == 1600){
+  } else if (frameCount == 1600) {
     sb_scene = false
     scene4 = true
     shakes = 10
-  }else if(frameCount == 1700){
+  } else if (frameCount == 1700) {
     sb_scene = true
     scene4 = false
-  }else if(frameCount == 1800){
+  } else if (frameCount == 1800) {
     sb_scene = false
     scene4 = true
     shakes = 15
+  } else if (frameCount == 1900) {
+    scene4 = false
+    scene5 = true
+  } else if (frameCount == 2000) {
+    scene5 = false
+    scene6 = true
+  } else if (frameCount == 2500) {
+    scene6 = false
+    scene7 = true
   }
 
-  */
 
 
 }
@@ -951,8 +953,10 @@ function scene_seven() {
   ellipse(260, 330, 100, 100)
   pop()
 
+  push()
+  translate(random(-shakes3, shakes3), random(-shakes3, shakes3))
+  push()
   //phone
-  push();
   translate(-200, 0)
   fill(191, 148, 228)
   rect(400, 200, 130, 250, 5)
@@ -991,6 +995,68 @@ function scene_seven() {
   rect(220, 300, 80, 50, 10)
   rect(300, 308, 15, 30, 5)
 
+  pop()
+
+  if (frameCount == 2600) {
+    b1 = 305
+  }
+
+  if (frameCount == 2800) {
+    b2 = 305
+  }
+
+  if (frameCount == 3000) {
+    b3 = 305
+  }
+
+  if (frameCount == 3200) {
+    b4 = 305
+    shakes3 = 1
+  }
+
+  if (frameCount == 3300) {
+    b5 = 355
+  }
+
+  if (frameCount == 3400) {
+    b6 = 355
+  }
+
+  if (frameCount == 3500) {
+    b7 = 355
+    shakes3 = 10
+  }
+
+  if (frameCount == 3550) {
+    b8 = 355
+  }
+
+  if (frameCount == 3600) {
+    b9 = 355
+  }
+
+  if (frameCount == 3650) {
+    b10 = 400
+    shakes3 = 20
+  }
+
+  if (frameCount == 3670) {
+    b11 = 400
+  }
+
+  if (frameCount == 3690) {
+    b12 = 400
+    shakes3 = 30
+  }
+
+  if (frameCount == 3710) {
+    b13 = 400
+  }
+
+  if (frameCount == 3730) {
+    b14 = 400
+  }
+
 }
 
 function scene_eight() {
@@ -1014,7 +1080,7 @@ function scene_eight() {
 
   //eyes
   fill(eye_color)
-  ellipse(250,300,50,100)
+  ellipse(250, 300, 50, 100)
   ellipse(450, 300, 50, 100)
 
 }
