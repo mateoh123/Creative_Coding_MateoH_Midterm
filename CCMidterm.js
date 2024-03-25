@@ -75,6 +75,7 @@ var b14 = 400
 
 //SCENE EIGHT VARIABLES//
 var scene8 = false
+var eye_color = "#000000"
 
 
 function setup() {
@@ -992,7 +993,28 @@ function scene_seven() {
 
 }
 
-function scene_eight(){
+function scene_eight() {
   background(194, 112, 190);
+
+  noStroke()
+
+  fill(48, 21, 7);
+  ellipse(100, 650, 200, 200)
+  ellipse(600, 650, 200, 200)
+
+  fill(189, 255, 242)
+  rect(140, 300, 400, 500)
+
+  fill(0, 0, 0)
+  ellipse(150, 200, 400, 400)
+  ellipse(550, 200, 400, 400)
+
+  fill(48, 21, 7);
+  ellipse(340, 400, 500, 500)
+
+  //eyes
+  fill(eye_color)
+  ellipse(250,300,50,100)
+  ellipse(450, 300, 50, 100)
 
 }
