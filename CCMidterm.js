@@ -8,6 +8,11 @@ var dooropen = 50;
 var knob = 550;
 var cloudfade = 300;
 var lightson = "#000000";
+var shelvesmove = 0
+var bedroommove = 0
+
+//SCENE TWO VARIABLES//
+var scene2 = false
 
 function setup() {
   createCanvas(700, 700);
@@ -20,10 +25,10 @@ function setup() {
 }
 
 function draw() {
-  //print(frameCount);
+  print(frameCount);
 
   if (scene1 == true) {
-    //SCENE ONE ATTRIBUTES//
+    scene_one();
 
     if (frameCount == 420) {
       lightson = "#ffef14";
@@ -37,27 +42,37 @@ function draw() {
         knob = knob - 1;
       }
     }
-
     //moon movement
     if (moon < 900) {
       moon = moon + 2;
       cloudfade = cloudfade - 0.8;
     }
-
     //sun movement
     if (sun > 100) {
       sun = sun + -2;
     }
-
     //sunrise
     sunrise = sunrise + 0.5;
 
     if (sun == 100) {
     }
-
-    //scene_one();
-    scene_two();
   }
+  
+  if(frameCount == 520){
+    scene1 = false
+    scene2 = true
+  }
+
+  if(scene2 == true){
+    scene_two()
+
+    if(frameCount >= 540){
+      bedroommove = 1000
+    }
+
+
+  }
+
 }
 
 //raining night, turns into sunny day. Camera zooms into door
@@ -224,8 +239,10 @@ function Rain() {
 function scene_two() {
   angleMode(DEGREES);
   background(194, 112, 190);
+  
+  push()
+  translate(bedroommove, 0)
   noStroke();
-
   //window
   fill(74, 72, 72);
   rect(350, 170, 250, 250);
@@ -339,5 +356,70 @@ function scene_two() {
   //floor
   fill(56, 31, 0);
   rect(0, 680, 700, 30);
+  pop();
+
+
+
+
+  /*
+  push();
+  translate(0,0)
+  noStroke()
+  //shelves closeup 1
+  fill(255, 255, 255)
+  rect(100,400,500,30)
+  
+  //small mirror
+  fill(97, 50, 0);
+  rect(130,200,150,200)
+  fill(201, 255, 255)
+  rect(140,210,130,180)
+  
+  //picture 
+  fill(255, 207, 156);
+  rect(410,200,150,200)
+  fill(227, 127, 20);
+  rect(420,210,130,180)
+  fill(211, 157, 245)
+  rect(460,290,50,100)
+  fill(0,0,0)
+  ellipse(460,250,50,50)
+  ellipse(510,250,50,50)
+  fill(54, 28, 0)
+  ellipse(485,290,70,70)
+  fill(54, 28, 0)
+  rect(440,330,20,60)
+  rect(510,330,20,60)
+  fill(211, 157, 245)
+  ellipse(450,330,30,30)
+  ellipse(520,330,30,30)
+  fill(0,0,0)
+  ellipse(470,280,5,15)
+  ellipse(490,280,5,15)
+  pop();
+
+  */
+
+  /*
+  push();
+  translate(600,0)
+  noStroke()
+  //shelves closeup 2
+  fill(255, 255, 255);
+  rect(100,500,500,30);
+
+  //trophey
+  fill(51, 28, 0);
+  rect(270,470,180,30);
+  rect(300,390,120,80);
+  fill(255, 215, 0);
+  rect(310,395,100,60);
+
+  ellipse(360,340,100,100);
+  rect(310,240,100,100);
+  pop();
+
+  */
+
 }
 
