@@ -22,9 +22,23 @@ var scene3 = false
 var scene4 = false
 var flash = 0
 var flashcolor = "#000000"
+var shakes = 5
 
 //SCENE SLEEPING BEDROOM VARIABLES//
 var sb_scene = false
+
+//SCENE FIVE VARIABLES//
+var scene5 = false
+
+//SCENE SIX VARIABLES//
+var scene6 = false
+var hand_movement = 0
+var phone_movement = 0
+var phoneoncharger = false
+var shakes2 = 15
+
+//SCENE SEVEN VARIABLES//
+var scene7 = false
 
 function setup() {
   createCanvas(700, 700);
@@ -33,10 +47,15 @@ function setup() {
   for (var i = 0; i < 200; i++) {
     rain[i] = new Rain();
   }
-  
+
 }
 
 function draw() {
+  //scene_five()
+  //scene_six()
+  scene_seven()
+
+  /*
 
   if (scene1 == true) {
     scene_one();
@@ -119,7 +138,24 @@ function draw() {
   }else if(frameCount == 1400){
     sb_scene = false
     scene4 = true
+
+  }else if(frameCount == 1500){
+    sb_scene = true
+    scene4 = false
+  }else if(frameCount == 1600){
+    sb_scene = false
+    scene4 = true
+    shakes = 10
+  }else if(frameCount == 1700){
+    sb_scene = true
+    scene4 = false
+  }else if(frameCount == 1800){
+    sb_scene = false
+    scene4 = true
+    shakes = 15
   }
+
+  */
 
 
 }
@@ -288,7 +324,7 @@ function Rain() {
 function scene_two() {
   angleMode(DEGREES);
   background(194, 112, 190);
-  
+
   push()
   translate(bedroommove, 0)
   noStroke();
@@ -407,64 +443,64 @@ function scene_two() {
   rect(0, 680, 700, 30);
   pop();
 
-  
+
   push();
-  translate(shelvesmove1,0)
+  translate(shelvesmove1, 0)
   noStroke()
   //shelves closeup 1
   fill(255, 255, 255)
-  rect(100,400,500,30)
-  
+  rect(100, 400, 500, 30)
+
   //small mirror
   fill(97, 50, 0);
-  rect(130,200,150,200)
+  rect(130, 200, 150, 200)
   fill(201, 255, 255)
-  rect(140,210,130,180)
-  
+  rect(140, 210, 130, 180)
+
   //picture 
   fill(255, 207, 156);
-  rect(410,200,150,200)
+  rect(410, 200, 150, 200)
   fill(227, 127, 20);
-  rect(420,210,130,180)
+  rect(420, 210, 130, 180)
   fill(211, 157, 245)
-  rect(460,290,50,100)
-  fill(0,0,0)
-  ellipse(460,250,50,50)
-  ellipse(510,250,50,50)
+  rect(460, 290, 50, 100)
+  fill(0, 0, 0)
+  ellipse(460, 250, 50, 50)
+  ellipse(510, 250, 50, 50)
   fill(54, 28, 0)
-  ellipse(485,290,70,70)
+  ellipse(485, 290, 70, 70)
   fill(54, 28, 0)
-  rect(440,330,20,60)
-  rect(510,330,20,60)
+  rect(440, 330, 20, 60)
+  rect(510, 330, 20, 60)
   fill(211, 157, 245)
-  ellipse(450,330,30,30)
-  ellipse(520,330,30,30)
-  fill(0,0,0)
-  ellipse(470,280,5,15)
-  ellipse(490,280,5,15)
+  ellipse(450, 330, 30, 30)
+  ellipse(520, 330, 30, 30)
+  fill(0, 0, 0)
+  ellipse(470, 280, 5, 15)
+  ellipse(490, 280, 5, 15)
   pop();
 
   push();
-  translate(shelvesmove2,0)
+  translate(shelvesmove2, 0)
   noStroke()
   //shelves closeup 2
   fill(255, 255, 255);
-  rect(100,500,500,30);
+  rect(100, 500, 500, 30);
 
   //trophey
   fill(51, 28, 0);
-  rect(270,470,180,30);
-  rect(300,390,120,80);
+  rect(270, 470, 180, 30);
+  rect(300, 390, 120, 80);
   fill(255, 215, 0);
-  rect(310,395,100,60);
+  rect(310, 395, 100, 60);
 
-  ellipse(360,340,100,100);
-  rect(310,240,100,100);
+  ellipse(360, 340, 100, 100);
+  rect(310, 240, 100, 100);
   pop();
 
 }
 
-function scene_three(){
+function scene_three() {
   background(56, 31, 0)
 
   noStroke()
@@ -474,29 +510,29 @@ function scene_three(){
 
   //phone
   push();
-  fill(191,148,228)
-  rect(400,200,130,250, 5)
+  fill(191, 148, 228)
+  rect(400, 200, 130, 250, 5)
   fill(flashcolor)
-  rect(405,205,120,240, 5)
+  rect(405, 205, 120, 240, 5)
   fill(0, 22, 56)
-  ellipse(465,220,10,10)
+  ellipse(465, 220, 10, 10)
   pop();
 
   //phone charger
   push()
-  fill(0,0,0)
-  rect(260,300, 5,400)
-  fill(0,0,0)
-  ellipse(260,330,130,130)
+  fill(0, 0, 0)
+  rect(260, 300, 5, 400)
+  fill(0, 0, 0)
+  ellipse(260, 330, 130, 130)
   fill(255, 194, 28)
-  ellipse(260,330,110,110)
-  fill(0,0,0)
-  ellipse(260,330,100,100)
+  ellipse(260, 330, 110, 110)
+  fill(0, 0, 0)
+  ellipse(260, 330, 100, 100)
   pop()
 
 }
 
-function scene_four(){
+function scene_four() {
   background(56, 31, 0)
 
   noStroke()
@@ -506,37 +542,37 @@ function scene_four(){
 
   //phone
   push();
-  translate(random(-5,5),random(-5,5))
-  fill(191,148,228)
-  rect(400,200,130,250, 5)
+  translate(random(-shakes, shakes), random(-shakes, shakes))
+  fill(191, 148, 228)
+  rect(400, 200, 130, 250, 5)
   fill(flashcolor)
-  rect(405,205,120,240, 5)
+  rect(405, 205, 120, 240, 5)
   fill(0, 22, 56)
-  ellipse(465,220,10,10)
+  ellipse(465, 220, 10, 10)
   pop();
 
   //phone charger
   push()
-  fill(0,0,0)
-  rect(260,300, 5,400)
-  fill(0,0,0)
-  ellipse(260,330,130,130)
+  fill(0, 0, 0)
+  rect(260, 300, 5, 400)
+  fill(0, 0, 0)
+  ellipse(260, 330, 130, 130)
   fill(255, 194, 28)
-  ellipse(260,330,110,110)
-  fill(0,0,0)
-  ellipse(260,330,100,100)
+  ellipse(260, 330, 110, 110)
+  fill(0, 0, 0)
+  ellipse(260, 330, 100, 100)
   pop()
 
-  if(flash % 10 == 0){
+  if (flash % 10 == 0) {
     flashcolor = "#ff0000"
-    
-  }else{
+
+  } else {
     flashcolor = "#000000"
   }
 
 }
 
-function sleeping_bedroom(){
+function sleeping_bedroom() {
   angleMode(DEGREES);
   background(194, 112, 190);
   push()
@@ -655,4 +691,259 @@ function sleeping_bedroom(){
   fill(56, 31, 0);
   rect(0, 680, 700, 30);
   pop();
+}
+
+function scene_five() {
+  angleMode(DEGREES);
+  background(194, 112, 190);
+  push()
+  noStroke();
+  //window
+  fill(74, 72, 72);
+  rect(350, 170, 250, 250);
+  fill(184, 230, 255);
+  rect(360, 180, 230, 230);
+  fill(74, 72, 72);
+  rect(470, 170, 10, 250);
+  rect(460, 390, 5, 30);
+
+  //desk
+  push();
+  translate(-20, 0);
+  push();
+  rotate(20);
+  fill(255, 255, 255);
+  rect(750, 270, 20, 180);
+  rotate(140);
+  rect(-430, -880, 20, 180);
+  pop();
+  fill(207, 148, 74);
+  rect(540, 500, 170, 20);
+  fill(255, 255, 255);
+  rect(585, 600, 80, 20);
+  pop();
+
+  //desk chair
+  fill(235, 235, 235);
+  ellipse(480, 570, 100, 30);
+  ellipse(440, 500, 30, 120);
+  fill(102, 102, 102);
+  rect(420, 570, 110, 20);
+  rect(420, 450, 20, 130);
+  rect(470, 570, 20, 60);
+  rect(465, 630, 30, 40);
+  rect(455, 670, 50, 10);
+
+  //computer and keyboard
+  fill(0, 0, 0);
+  rect(600, 492, 50, 8);
+  rect(620, 450, 8, 50);
+  rect(616, 400, 15, 70);
+  rect(540, 494, 30, 6);
+
+  //pillow
+  fill(255, 255, 255);
+  ellipse(80, 550, 80, 30);
+  //bed
+  fill(255, 255, 255);
+  rect(20, 450, 20, 230);
+  rect(300, 550, 20, 130);
+  rect(20, 600, 280, 20);
+  rect(13, 440, 35, 20);
+  rect(293, 530, 35, 20);
+  fill(255, 214, 250);
+  rect(40, 555, 260, 45, 5);
+
+  //chest
+  fill(66, 36, 0);
+  rect(320, 590, 90, 90);
+  fill(181, 181, 181);
+  rect(410, 620, 10, 20);
+
+  //bed covers
+  fill(237, 237, 237);
+  ellipse(200, 510, 200, 100);
+  rect(100, 510, 200, 100, 5);
+
+  //girl
+  push()
+  translate(0, 90)
+  fill(48, 21, 7);
+  ellipse(200, 505, 35, 35)
+  rect(185, 505, 30, 75)
+  ellipse(200, 580, 30, 30)
+  pop()
+  fill(184, 244, 255)
+  rect(165, 450, 70, 150)
+  fill(48, 21, 7);
+  ellipse(200, 440, 90, 90);
+  fill(0, 0, 0);
+  ellipse(170, 440, 5, 15);
+  ellipse(230, 420, 60, 60);
+  fill(48, 21, 7);
+  ellipse(200, 505, 35, 35)
+  rect(185, 505, 30, 75)
+  ellipse(200, 580, 30, 30)
+
+
+  //bedside table
+  fill(66, 36, 0);
+  rect(30, 565, 90, 15);
+  rect(65, 570, 15, 100);
+  rect(58, 665, 30, 20);
+
+  //phone
+  push()
+  translate(random(-1, 1), random(-1, 1))
+  fill(0, 0, 0);
+  rect(60, 560, 45, 5);
+  pop()
+
+  //shelves
+  fill(255, 255, 255);
+  rect(60, 350, 100, 10);
+  rect(190, 380, 100, 10);
+
+  //posters
+  fill(191, 191, 191);
+  push();
+  rotate(10);
+  rect(100, 100, 80, 120);
+  pop();
+
+  push();
+  rotate(2);
+  rect(200, 180, 80, 120);
+  pop();
+
+  //lights
+  fill(66, 36, 0);
+  rect(300, 0, 100, 15);
+  rect(345, -20, 10, 100);
+  fill(255, 243, 82);
+  ellipse(350, 85, 15, 15);
+  fill(66, 36, 0);
+  rect(300, 77, 100, 5);
+
+  //floor
+  fill(56, 31, 0);
+  rect(0, 680, 700, 30);
+  pop();
+
+}
+
+function scene_six() {
+  background(56, 31, 0)
+
+  noStroke()
+  //bedside table
+  fill(66, 36, 0);
+  ellipse(340, 340, 500, 500);
+
+
+  //phone charger
+  push()
+  fill(0, 0, 0)
+  rect(260, 300, 5, 400)
+  fill(0, 0, 0)
+  ellipse(260, 330, 130, 130)
+  fill(255, 194, 28)
+  ellipse(260, 330, 110, 110)
+  fill(0, 0, 0)
+  ellipse(260, 330, 100, 100)
+  pop()
+
+  //phone
+  push()
+  translate(hand_movement, 0)
+  fill(46, 21, 0)
+  ellipse(800, 300, 100, 100)
+  rect(800, 250, 450, 100)
+  pop()
+
+  //phone
+  push();
+  translate(random(-shakes2, shakes2), random(-shakes2, shakes2))
+  translate(phone_movement, 0)
+  fill(191, 148, 228)
+  rect(400, 200, 130, 250, 5)
+  fill(flashcolor)
+  rect(405, 205, 120, 240, 5)
+  fill(0, 22, 56)
+  ellipse(465, 220, 10, 10)
+  pop();
+
+  if (phoneoncharger == false) {
+    hand_movement -= 2
+    if (hand_movement <= -300) {
+      phone_movement -= 2
+    }
+  }
+
+  if (hand_movement == -500 && phoneoncharger == false) {
+    phoneoncharger = true
+    shakes2 = 0
+  }
+
+  if (hand_movement <= 0 && phoneoncharger == true) {
+    hand_movement += 2
+  }
+
+}
+
+function scene_seven() {
+  background(56, 31, 0)
+
+  noStroke()
+  //bedside table
+  fill(66, 36, 0);
+  ellipse(340, 340, 500, 500);
+
+
+  //phone charger
+  push()
+  fill(0, 0, 0)
+  rect(260, 300, 5, 400)
+  fill(0, 0, 0)
+  ellipse(260, 330, 130, 130)
+  fill(255, 194, 28)
+  ellipse(260, 330, 110, 110)
+  fill(0, 0, 0)
+  ellipse(260, 330, 100, 100)
+  pop()
+
+  //phone
+  push();
+  translate(-200, 0)
+  fill(191, 148, 228)
+  rect(400, 200, 130, 250, 5)
+  fill(flashcolor)
+  rect(405, 205, 120, 240, 5)
+  fill(0, 22, 56)
+  ellipse(465, 220, 10, 10)
+  pop();
+
+  //battery levels
+  fill(33, 255, 33)
+  noStroke()
+  rect(225, 305, 20, 40, 5)
+  rect(250, 305, 20, 40, 5)
+  rect(275, 305, 20, 40, 5)
+  rect(300, 305, 20, 40, 5)
+  rect(210, 355, 20, 40, 5)
+  rect(235, 355, 20, 40, 5)
+  rect(260, 355, 20, 40, 5)
+  rect(285, 355, 20, 40, 5)
+
+
+
+  //battery symbol
+  stroke(255, 255, 255)
+  strokeWeight(5)
+  noFill()
+  rect(220, 300, 80, 50, 10)
+  rect(300, 308, 15, 30, 5)
+
+
+
 }
