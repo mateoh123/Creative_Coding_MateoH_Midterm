@@ -62,6 +62,7 @@ var eye_color = "#000000"
 
 //SCENE NINE VARIABLES??
 var scene9 = true
+var taptap = 0
 
 
 function setup() {
@@ -159,54 +160,54 @@ function draw() {
     scene_eight()
   }
 
-  if (scene9 == true){
+  if (scene9 == true) {
     scene_nine()
   }
-/*
-  if (frameCount == 550) {
-    scene1 = false
-    scene2 = true
-    scene3 = false
-    scene4 = false
-  } else if (frameCount == 1200) {
-    scene2 = false
-    scene3 = true
-  } else if (frameCount == 1300) {
-    scene3 = false
-    sb_scene = true
-  } else if (frameCount == 1400) {
-    sb_scene = false
-    scene4 = true
-
-  } else if (frameCount == 1500) {
-    sb_scene = true
-    scene4 = false
-  } else if (frameCount == 1600) {
-    sb_scene = false
-    scene4 = true
-    shakes = 10
-  } else if (frameCount == 1700) {
-    sb_scene = true
-    scene4 = false
-  } else if (frameCount == 1800) {
-    sb_scene = false
-    scene4 = true
-    shakes = 15
-  } else if (frameCount == 1900) {
-    scene4 = false
-    scene5 = true
-  } else if (frameCount == 2000) {
-    scene5 = false
-    scene6 = true
-  } else if (frameCount == 2500) {
-    scene6 = false
-    scene7 = true
-  } else if (frameCount == 3800) {
-    scene7 = false
-    scene8 = true
-  }
-
-*/
+  /*
+    if (frameCount == 550) {
+      scene1 = false
+      scene2 = true
+      scene3 = false
+      scene4 = false
+    } else if (frameCount == 1200) {
+      scene2 = false
+      scene3 = true
+    } else if (frameCount == 1300) {
+      scene3 = false
+      sb_scene = true
+    } else if (frameCount == 1400) {
+      sb_scene = false
+      scene4 = true
+  
+    } else if (frameCount == 1500) {
+      sb_scene = true
+      scene4 = false
+    } else if (frameCount == 1600) {
+      sb_scene = false
+      scene4 = true
+      shakes = 10
+    } else if (frameCount == 1700) {
+      sb_scene = true
+      scene4 = false
+    } else if (frameCount == 1800) {
+      sb_scene = false
+      scene4 = true
+      shakes = 15
+    } else if (frameCount == 1900) {
+      scene4 = false
+      scene5 = true
+    } else if (frameCount == 2000) {
+      scene5 = false
+      scene6 = true
+    } else if (frameCount == 2500) {
+      scene6 = false
+      scene7 = true
+    } else if (frameCount == 3800) {
+      scene7 = false
+      scene8 = true
+    }
+  
+  */
 
 }
 
@@ -1111,9 +1112,20 @@ function scene_eight() {
 
 }
 
-function scene_nine(){
+function scene_nine() {
   background(194, 112, 190);
   noStroke()
+
+
+  //hand poking phone
+  push()
+  translate(taptap, 230)
+  fill(48, 21, 7);
+  ellipse(700, 300, 250, 250)
+  rect(470, 230, 140, 50)
+  ellipse(470, 255, 50, 50)
+  rect(685, 176, 245, 245)
+  pop()
 
   //phone
   push()
@@ -1132,9 +1144,6 @@ function scene_nine(){
   ellipse(250, 400, 250, 250)
   pop()
 
-  //hand poking phone
-  fill(48, 21, 7);
-  ellipse(700,300,250,250)
 
 
 
