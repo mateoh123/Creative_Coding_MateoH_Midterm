@@ -1,6 +1,10 @@
+
+//Rain Function/Class Made with the help of Youtube Video 
+//Creating Rain in P5 - Coding Challenge #3 - CarlinoGonzalez
+
 //SCENES ONE VARIABLES//
 var scene1 = true;
-var rain = [];
+var rain = []; //array to hold individual dropelet variables
 var moon = 0;
 var sun = 800;
 var sunrise = 0;
@@ -68,10 +72,9 @@ var forwards = false
 
 function setup() {
   createCanvas(700, 700);
-  frameRate(460);
 
-  for (var i = 0; i < 200; i++) {
-    rain[i] = new Rain();
+  for (var i = 0; i < 200; i++) {//creates new instances of droplets within the range of the for loop
+    rain[i] = new Rain(); // creates the droplets
   }
 
 }
@@ -220,7 +223,6 @@ function draw() {
 
 }
 
-//raining night, turns into sunny day. Camera zooms into door
 function scene_one() {
   background(0, 0, sunrise);
 
@@ -343,7 +345,7 @@ function scene_one() {
 
   //rain
   if (sun > 100) {
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 100; i++) { //rain shows and updates within these bounds
       rain[i].show();
       rain[i].update();
     }
@@ -360,22 +362,21 @@ function scene_one() {
   ellipse(640, -20, 200, 100);
 }
 
-function Rain() {
-  this.x = random(0, width);
-  this.y = random(0, -height);
+function Rain() { //rain function
+  this.x = random(0, width); //initlization of the x
+  this.y = random(0, -height); //initlization of the y
   this.show = function () {
     fill(94, 172, 255, 100);
     noStroke();
-    ellipse(this.x, this.y, 4, 12);
+    ellipse(this.x, this.y, 4, 12); //random droplet width and height
   };
   this.update = function () {
-    this.speed = random(5, 15);
-    this.gravity = 1.05;
-    this.y = this.y + this.speed * this.gravity;
+    this.speed = random(5, 15); //randomizes droplet speed
 
-    if (this.y > height) {
+    this.y = this.y + this.speed //makes them move
+
+    if (this.y > height) { //resets the rain once it hits the bottom
       this.y = random(0, -height);
-      this.gravity = 0;
     }
   };
 }
@@ -1139,20 +1140,22 @@ function scene_nine() {
 
   //eyebrows
   fill(0, 0, 0)
+  rect(200, 220, 100, 20)
+  rect(400, 220, 100, 20)
 
   if (frameCount == 4110) {
     eye_color = "#301507"
   }
 
-  if (frameCount == 4130) {
+  if (frameCount == 4150) {
     eye_color = "#000000"
   }
 
-  if (frameCount == 4150) {
+  if (frameCount == 4190) {
     eye_color = "#301507"
   }
 
-  if (frameCount == 4170) {
+  if (frameCount == 4240) {
     eye_color = "#000000"
   }
 
