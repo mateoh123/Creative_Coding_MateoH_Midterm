@@ -1,5 +1,5 @@
 //SCENES ONE VARIABLES//
-var scene1 = true;
+var scene1 = false;
 var rain = [];
 var moon = 0;
 var sun = 800;
@@ -60,6 +60,9 @@ var shakes3 = 0
 var scene8 = false
 var eye_color = "#000000"
 
+//SCENE NINE VARIABLES??
+var scene9 = true
+
 
 function setup() {
   createCanvas(700, 700);
@@ -91,7 +94,6 @@ function draw() {
     }
     //moon movement
     if (moon < 900) {
-      moon = moon + 2;
       cloudfade = cloudfade - 0.8;
     }
     //sun movement
@@ -157,6 +159,10 @@ function draw() {
     scene_eight()
   }
 
+  if (scene9 == true){
+    scene_nine()
+  }
+/*
   if (frameCount == 550) {
     scene1 = false
     scene2 = true
@@ -200,7 +206,7 @@ function draw() {
     scene8 = true
   }
 
-
+*/
 
 }
 
@@ -1102,5 +1108,36 @@ function scene_eight() {
   if (frameCount == 3870) {
     eye_color = "#000000"
   }
+
+}
+
+function scene_nine(){
+  background(194, 112, 190);
+  noStroke()
+
+  //phone
+  push()
+  translate(random(-5, 5), random(-5, 5))
+  fill(0, 0, 0)
+  rect(362, 245, 10, 290)
+  fill(191, 148, 228)
+  rect(360, 240, 10, 300, 5)
+  pop()
+
+
+  //hand holding phone
+  push()
+  fill(48, 21, 7);
+  ellipse(200, 600, 250, 550)
+  ellipse(250, 400, 250, 250)
+  pop()
+
+  //hand poking phone
+  fill(48, 21, 7);
+  ellipse(700,300,250,250)
+
+
+
+
 
 }
