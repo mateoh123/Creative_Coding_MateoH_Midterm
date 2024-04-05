@@ -1,5 +1,5 @@
 //SCENES ONE VARIABLES//
-var scene1 = false;
+var scene1 = true;
 var rain = [];
 var moon = 0;
 var sun = 800;
@@ -61,13 +61,14 @@ var scene8 = false
 var eye_color = "#000000"
 
 //SCENE NINE VARIABLES??
-var scene9 = true
-var taptap = 0
+var scene9 = false
+var taptap = -65
+var forwards = false
 
 
 function setup() {
   createCanvas(700, 700);
-  //frameRate(60);
+  frameRate(460);
 
   for (var i = 0; i < 200; i++) {
     rain[i] = new Rain();
@@ -76,7 +77,6 @@ function setup() {
 }
 
 function draw() {
-  //scene_eight()
 
   if (scene1 == true) {
     scene_one();
@@ -158,56 +158,65 @@ function draw() {
 
   if (scene8 == true) {
     scene_eight()
+    if (forwards) {
+      taptap = taptap - 10
+    } else {
+      taptap = taptap + 10
+    }
+    if (taptap > width - 500 || taptap < -70) {
+      forwards = !forwards
+    }
   }
 
   if (scene9 == true) {
     scene_nine()
+
   }
-  /*
-    if (frameCount == 550) {
-      scene1 = false
-      scene2 = true
-      scene3 = false
-      scene4 = false
-    } else if (frameCount == 1200) {
-      scene2 = false
-      scene3 = true
-    } else if (frameCount == 1300) {
-      scene3 = false
-      sb_scene = true
-    } else if (frameCount == 1400) {
-      sb_scene = false
-      scene4 = true
-  
-    } else if (frameCount == 1500) {
-      sb_scene = true
-      scene4 = false
-    } else if (frameCount == 1600) {
-      sb_scene = false
-      scene4 = true
-      shakes = 10
-    } else if (frameCount == 1700) {
-      sb_scene = true
-      scene4 = false
-    } else if (frameCount == 1800) {
-      sb_scene = false
-      scene4 = true
-      shakes = 15
-    } else if (frameCount == 1900) {
-      scene4 = false
-      scene5 = true
-    } else if (frameCount == 2000) {
-      scene5 = false
-      scene6 = true
-    } else if (frameCount == 2500) {
-      scene6 = false
-      scene7 = true
-    } else if (frameCount == 3800) {
-      scene7 = false
-      scene8 = true
-    }
-  
-  */
+  if (frameCount == 550) {
+    scene1 = false
+    scene2 = true
+    scene3 = false
+    scene4 = false
+  } else if (frameCount == 1200) {
+    scene2 = false
+    scene3 = true
+  } else if (frameCount == 1300) {
+    scene3 = false
+    sb_scene = true
+  } else if (frameCount == 1400) {
+    sb_scene = false
+    scene4 = true
+
+  } else if (frameCount == 1500) {
+    sb_scene = true
+    scene4 = false
+  } else if (frameCount == 1600) {
+    sb_scene = false
+    scene4 = true
+    shakes = 10
+  } else if (frameCount == 1700) {
+    sb_scene = true
+    scene4 = false
+  } else if (frameCount == 1800) {
+    sb_scene = false
+    scene4 = true
+    shakes = 15
+  } else if (frameCount == 1900) {
+    scene4 = false
+    scene5 = true
+  } else if (frameCount == 2000) {
+    scene5 = false
+    scene6 = true
+  } else if (frameCount == 2500) {
+    scene6 = false
+    scene7 = true
+  } else if (frameCount == 3800) {
+    scene7 = false
+    scene8 = true
+  } else if (frameCount == 4100) {
+    scene8 = false
+    scene9 = true
+  }
 
 }
 
@@ -1072,48 +1081,6 @@ function scene_seven() {
 
 function scene_eight() {
   background(194, 112, 190);
-
-  noStroke()
-
-  fill(48, 21, 7);
-  ellipse(100, 650, 200, 200)
-  ellipse(600, 650, 200, 200)
-
-  fill(189, 255, 242)
-  rect(140, 300, 400, 500)
-
-  fill(0, 0, 0)
-  ellipse(150, 200, 400, 400)
-  ellipse(550, 200, 400, 400)
-
-  fill(48, 21, 7);
-  ellipse(340, 400, 500, 500)
-
-  //eyes
-  fill(eye_color)
-  ellipse(250, 300, 50, 100)
-  ellipse(450, 300, 50, 100)
-
-  if (frameCount == 3810) {
-    eye_color = "#301507"
-  }
-
-  if (frameCount == 3830) {
-    eye_color = "#000000"
-  }
-
-  if (frameCount == 3850) {
-    eye_color = "#301507"
-  }
-
-  if (frameCount == 3870) {
-    eye_color = "#000000"
-  }
-
-}
-
-function scene_nine() {
-  background(194, 112, 190);
   noStroke()
 
 
@@ -1144,9 +1111,49 @@ function scene_nine() {
   ellipse(250, 400, 250, 250)
   pop()
 
+}
 
+function scene_nine() {
+  background(194, 112, 190);
 
+  noStroke()
 
+  fill(48, 21, 7);
+  ellipse(100, 650, 200, 200)
+  ellipse(600, 650, 200, 200)
 
+  fill(189, 255, 242)
+  rect(140, 300, 400, 500)
+
+  fill(0, 0, 0)
+  ellipse(150, 200, 400, 400)
+  ellipse(550, 200, 400, 400)
+
+  fill(48, 21, 7);
+  ellipse(340, 400, 500, 500)
+
+  //eyes
+  fill(eye_color)
+  ellipse(250, 300, 50, 100)
+  ellipse(450, 300, 50, 100)
+
+  //eyebrows
+  fill(0, 0, 0)
+
+  if (frameCount == 4110) {
+    eye_color = "#301507"
+  }
+
+  if (frameCount == 4130) {
+    eye_color = "#000000"
+  }
+
+  if (frameCount == 4150) {
+    eye_color = "#301507"
+  }
+
+  if (frameCount == 4170) {
+    eye_color = "#000000"
+  }
 
 }
